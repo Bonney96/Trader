@@ -1,0 +1,76 @@
+{
+    "ml": {
+        "enabled": true,
+        "lookback_period": 30,
+        "prediction_horizon": 5,
+        "train_first": true,
+        "retrain_interval_days": 7,
+        "min_confidence": 0.65,
+        "position_sizing": {
+            "base_percent": 0.02,
+            "scale_by_confidence": true
+        }
+    },
+    "sentiment": {
+        "enabled": true,
+        "sentiment_lookback": 3,
+        "sentiment_threshold": 0.3,
+        "news_weight": 0.7,
+        "social_weight": 0.3,
+        "position_sizing": {
+            "base_percent": 0.015,
+            "scale_by_sentiment": true
+        }
+    },
+    "ma_crossover": {
+        "enabled": true,
+        "short_window": 20,
+        "long_window": 50,
+        "position_sizing": {
+            "base_percent": 0.01,
+            "fixed_size": true
+        }
+    },
+    "risk_management": {
+        "max_position_size_percent": 0.05,
+        "max_open_positions": 5,
+        "max_daily_loss": 0.02,
+        "stop_loss_percent": 0.02,
+        "take_profit_percent": 0.04,
+        "diversification": {
+            "max_sector_exposure": 0.3,
+            "max_industry_exposure": 0.2
+        }
+    },
+    "portfolio_optimization": {
+        "rebalance_frequency_days": 7,
+        "target_sharpe": 1.5,
+        "max_drawdown_threshold": 0.15
+    },
+    "execution": {
+        "trading_hours": {
+            "start": "09:30",
+            "end": "16:00"
+        },
+        "order_types": {
+            "entry": "market",
+            "exit": "market",
+            "stop_loss": "stop",
+            "take_profit": "limit"
+        },
+        "slippage_model": {
+            "type": "percentage",
+            "value": 0.001
+        }
+    },
+    "backtest": {
+        "start_date": "2022-01-01",
+        "end_date": "2023-12-31",
+        "initial_capital": 100000,
+        "include_fees": true,
+        "fee_model": {
+            "type": "flat",
+            "value": 0.0
+        }
+    }
+} 
