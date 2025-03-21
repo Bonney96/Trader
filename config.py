@@ -1,13 +1,13 @@
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
+# Load environment variables from .env file
 load_dotenv()
 
 # Alpaca API Configuration
-API_KEY = 'PKQGQ3901AX5VIJ1ENTO'
-API_SECRET = 'I4BtwZSK9vWaqmscdamN722tgLfDYNlzm8Y4U3Z6'
-BASE_URL = 'https://paper-api.alpaca.markets'
+API_KEY = os.getenv('ALPACA_API_KEY')
+API_SECRET = os.getenv('ALPACA_SECRET_KEY')
+BASE_URL = os.getenv('ALPACA_BASE_URL', 'https://paper-api.alpaca.markets')
 
 # Trading Parameters
 MAX_POSITION_SIZE = 100  # Maximum number of shares per position
@@ -21,8 +21,8 @@ TRADING_HOURS = {
 }
 
 # Logging Configuration
-LOG_LEVEL = 'INFO'
-LOG_FILE = 'trading.log'
+LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
+LOG_FILE = os.getenv('LOG_FILE', 'trading.log')
 
 # Risk Management
 MAX_DAILY_LOSS = 0.02  # 2% maximum daily loss
